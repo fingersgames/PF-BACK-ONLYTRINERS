@@ -1,6 +1,6 @@
 
 const {Plan,User} = require("../db")
-const getPlanDetail = async (req,res)=>{
+const getUserDetail = async (req,res)=>{
     const {idUser}=req.params
     try {
         if (idUser) {
