@@ -10,9 +10,10 @@ const postUser = async (req,res)=>{
           Birthdate,
           nationality,
           sex,
-          type
+          typeUser
         } = req.body;
-  
+
+        
         const haduserName =await User.count({where:{userName}})
         if(haduserName>0) return res.status(400).json({error:"Usuario ya existe"})
         const hadmail= await User.count({where:{email}})
@@ -28,7 +29,7 @@ const postUser = async (req,res)=>{
           Birthdate:birthdated,
           nationality,
           sex,
-          type
+          typeUser
         })
         return res.send('User Creado')
       } catch (error) {
