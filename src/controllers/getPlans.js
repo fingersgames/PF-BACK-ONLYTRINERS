@@ -1,9 +1,9 @@
 
-const {Plan,Videos} = require("../db")
+const {Plan} = require("../db")
 const getPlan = async (req,res)=>{
     try {
         const activities= await Plan.findAll()
-        const videos= await Videos.findAll()
+        // const videos= await Video.findAll()
         const r=[activities,videos]
         if(!activities.length) return res.send('No hay actividades')
         return res.json(r);
