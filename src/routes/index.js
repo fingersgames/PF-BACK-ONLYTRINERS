@@ -11,7 +11,7 @@ const router = Router()
 router.get('/plans',getPlans)
 router.get('/plan/:idPlan',getPlanDetail)
 router.get('/users',getUsers)
-router.get('/users/:idUsers',getUserDetail)
+router.get('/user/:idUser',getUserDetail)
 router.post('/user',postUser)
 router.post('/plan',postPlan)
 router.get('/search',getSearch)//por query

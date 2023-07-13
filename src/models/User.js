@@ -41,6 +41,10 @@ module.exports = (sequelize) => {
   },
   typeUser:{
     type:DataTypes.ENUM("Client","Trainer","admin")
+  },
+  urlImage:{
+    type:DataTypes.STRING,
+    allowNull: true,
   }
 })
 }
