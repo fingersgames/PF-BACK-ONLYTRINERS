@@ -4,9 +4,9 @@ const getPlan = async (req,res)=>{
     try {
         const activities= await Plan.findAll()
         // const videos= await Video.findAll()
-        const r=[activities]
+        
         if(!activities.length) return res.send('No hay actividades')
-        return res.json(r);
+        return res.json(activities);
     } catch (error) {
         return res.status(500).json(error.message)
     }
