@@ -6,9 +6,10 @@ const getPlanDetail = async (req,res)=>{
         if (idPlan) {
             const p= await Plan.findByPk(idPlan)
             if(!p) return res.status(400).send('Plan no encontrado')
-            const u=await User.findByPk(f.idUser)
+            const u=await User.findByPk(p.idUser)
             const v= await Video.findAll({where:{idPlan:idPlan}})
-            const r=[p,v,{idUser:u.idUser,userName:u.userName},]
+            console.log(v)
+            const r=[p,v,{idUser:u.idUser,userName:u.userName}]
             return res.json(r);
         }
         return res.status(400).send("Falta idPlan")
