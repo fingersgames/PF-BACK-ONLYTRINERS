@@ -1,5 +1,4 @@
 const {User,Plan,Video} = require('../db')
-const {Country} =require('../db')
 const postPlan = async (req,res)=>{
     try {
         const {
@@ -10,17 +9,17 @@ const postPlan = async (req,res)=>{
           tags,
           videos,
           idUser
-        } = req.body;
-    
-        const newPlan = await Plan.create({
-          title,
-          privateDescription,
-          publicDescription,
-          price,
-          tags,
-          idUser
-        });
-    
+        } = req.body; 
+          const newPlan = await Plan.create({
+            title,
+            privateDescription,
+            publicDescription,
+            price,
+            tags,
+            idUser
+          });
+
+
         // Asociar los videos al plan
         if (videos && videos.length > 0) {
           const videoPromises = videos.map((video) =>
