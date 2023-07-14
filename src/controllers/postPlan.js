@@ -19,8 +19,11 @@ const postPlan = async (req,res)=>{
             idUser
           });
 
+          const us=await User.findByPk(idUser)
+          console.log(idUser)
+          if (!us) return res.status(404).json({ message: "No existe el usuario" });
 
-        // Asociar los videos al plan
+          // Asociar los videos al plan
         if (videos && videos.length > 0) {
           const videoPromises = videos.map((video) =>
             Video.create({
