@@ -7,6 +7,7 @@ const getUserDetail = async (req,res)=>{
         if (idUser) {
             const u= await User.findByPk(idUser)
             if(!u) return res.status(400).send('Usuario no encontrado')
+            if(!u.isActive) return res.status(400).send('Usuario no encontrado')
             const plans= await Plan.findAll({where:{idUser:idUser}})
             const r={...u.dataValues,plans}
             return res.json(r);
