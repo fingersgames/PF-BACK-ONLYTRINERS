@@ -7,19 +7,17 @@ const getPlan = async (req, res) => {
     const updatedPlanes = await Promise.all(planes.map(async (pla) => {
       const video = await Video.findOne({ where: { idPlan: pla.idPlan }, limit: 1 });
       const user = await User.findByPk(pla.idUser);
-      
       const videoUrl = video ? video.url : null;
       const newPla = {...pla.dataValues, primerVideoUrl: videoUrl,idUser:user.idUser,userName:user.userName};
       return newPla;
     }));
 
-    const response = updatedPlanes;
 
     if (!planes.length) {
       return res.send('No hay plaividades');
     }
 
-    return res.json(response);
+    return res.json(updatedPlanes);
   } catch (error) {
     return res.status(500).json(error.message);
   }

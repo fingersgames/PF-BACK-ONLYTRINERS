@@ -3,6 +3,7 @@ const getPlans = require('../controllers/getPlans')
 const getPlanDetail = require('../controllers/getPlanDetail')
 const getUsers = require('../controllers/getUsers')
 const getUserDetail = require('../controllers/getUserDetail')
+const postUserLogin = require('../controllers/postUserLogin')
 const getSearch = require('../controllers/getSearch')
 const postUser = require('../controllers/postUser')
 const postPlan = require('../controllers/postPlan')
@@ -18,13 +19,13 @@ router.get('/plan/:idPlan',getPlanDetail)
 router.get('/users',getUsers)
 router.get('/user/:idUser',getUserDetail)
 router.get('/search',getSearch)//por query
-router.post('/user',postUser)
+router.post('/user',postUserLogin)
 router.post('/plan',postPlan)
+router.post('/login/',postUserLogin)
 router.put('/plan',updatePlan)
 router.put('/user',updateUser)
 router.delete('/plan',deletePlan)
 router.delete('/user',deleteUser)
-
 module.exports = router;
 
 
