@@ -4,8 +4,9 @@ const {Plan,User, Video} = require("../db")
 const getSearch= async (req,res)=>{
 try {
     const {search}=req.query
-    console.log(req.query)
+    console.log(search)
     // if(!search) return res.status(400).send('Falta Palabra busqueda')
+    
     let planes = await Plan.findAll({
         where: {
           [Sequelize.Op.or]: [

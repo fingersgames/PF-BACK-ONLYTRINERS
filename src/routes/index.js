@@ -22,6 +22,7 @@ router.get('/search',getSearch)//por query
 router.post('/user',postUserLogin)
 router.post('/plan',postPlan)
 router.post('/login/',postUserLogin)
+router.post('/user/',postUser)
 router.put('/plan',updatePlan)
 router.put('/user',updateUser)
 router.delete('/plan',deletePlan)
