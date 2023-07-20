@@ -18,7 +18,7 @@ router.get('/plans',getPlans)
 router.get('/plan/:idPlan',getPlanDetail)
 router.get('/users',getUsers)
 router.get('/user/:idUser',getUserDetail)
-router.get('/search',getSearch)//por query
+router.get('/search',getSearch)
 router.post('/plan',postPlan)
 router.post('/login/',postUserLogin)
 router.post('/user/',postUser)

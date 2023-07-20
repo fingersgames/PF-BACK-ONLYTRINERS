@@ -6,8 +6,9 @@ const deletePlan = async (req, res) => {
     const { idPlan } = req.query;
 
     const plan = await Plan.findByPk(idPlan);
+    console.log(idPlan)
     if (!plan) {
-      return res.status(404).json({ message: 'El plan no existe' });
+      return res.status(402).json({ message: 'El plan no existe' });
     }
 
     await Video.destroy({ where: { idPlan: idPlan } });

@@ -21,7 +21,7 @@ const postPlan = async (req,res)=>{
 
           const us=await User.findByPk(idUser)
           console.log(idUser)
-          if (!us) return res.status(404).json({ message: "No existe el usuario" });
+          if (!us) return res.status(406).json({ message: "No existe el usuario" });
 
           // Asociar los videos al plan
         if (videos && videos.length > 0) {
