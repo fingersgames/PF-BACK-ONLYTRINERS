@@ -17,10 +17,10 @@ const postBought = require('../controllers/postBought')
 
 
 const postCompra = require("../controllers/postCompra") //Import
-router.post('/checkout', postCompra) //enrutado
+
 
 const router = Router()
-
+router.post('/checkout', postCompra) //enrutado
 router.get('/plans',getPlans)
 router.get('/plan/:idPlan',getPlanDetail)
 router.get('/users',getUsers)
