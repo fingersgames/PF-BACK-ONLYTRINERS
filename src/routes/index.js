@@ -14,6 +14,11 @@ const deleteUser = require('../controllers/deleteUser')
 const deleteLogicPlan = require('../controllers/deleteLogicPlan')
 const deletePlan = require('../controllers/deletePlan')
 const postBought = require('../controllers/postBought')
+
+
+const postCompra = require("../controllers/postCompra") //Import
+router.post('/checkout', postCompra) //enrutado
+
 const router = Router()
 
 router.get('/plans',getPlans)
