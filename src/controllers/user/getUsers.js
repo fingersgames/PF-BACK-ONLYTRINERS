@@ -1,5 +1,5 @@
 
-const {User} = require("../db")
+const {User} = require("../../db")
 const getUsers = async (req,res)=>{
     try {
         const u= await User.findAll({where:{isActive:true}})

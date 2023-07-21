@@ -1,4 +1,4 @@
-const {Plan, Video } = require('../db');
+const {Plan, Video } = require('../../db');
 
 const deletePlan = async (req, res) => {
   try {
@@ -10,8 +10,10 @@ const deletePlan = async (req, res) => {
     if (!plan) {
       return res.status(402).json({ message: 'El plan no existe' });
     }
-    plan.isActive = false
-    await plan.save();
+
+    await Video.destroy({ where: { idPlan: idPlan } });
+    await Plan.destroy({ where: { idPlan: idPlan } });
+
     res.send('Plan eliminado');
   } catch (error) {
     console.log(error);

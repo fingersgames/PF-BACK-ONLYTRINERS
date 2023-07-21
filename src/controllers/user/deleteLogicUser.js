@@ -1,4 +1,4 @@
-const { User} = require('../db');
+const { User} = require('../../db');
 
 const deleteLogicUser = async (req, res) => {
   try {
@@ -9,12 +9,10 @@ const deleteLogicUser = async (req, res) => {
       return res.status(404).json({ message: 'El usuario no existe' });
     }
 
-    // Eliminación del usuario
+    // Eliminación lógica del usuario
  
-    await User.destroy({ where: { idUser: idUser } });
-    await Plan.destroy({ where: { idUser: idUser } });
-
-  
+    user.isActive = false
+    await user.save();
     res.send('Usuario eliminado');
   } catch (error) {
     console.log(error);

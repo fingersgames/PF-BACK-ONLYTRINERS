@@ -1,5 +1,5 @@
 
-const {Plan,User} = require("../db")
+const {Plan,User} = require("../../db")
 const getUserDetail = async (req,res)=>{
     const {idUser}=req.params
     console.log(req.params)

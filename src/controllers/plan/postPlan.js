@@ -1,4 +1,4 @@
-const {User,Plan,Video} = require('../db')
+const {User,Plan,Video} = require('../../db')
 const postPlan = async (req,res)=>{
     try {
         const {

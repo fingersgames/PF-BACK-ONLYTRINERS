@@ -1,5 +1,5 @@
 
-const {User} = require("../db")
+const {User} = require("../../db")
 const postUserLogin = async (req,res)=>{
     const {userName, password}=req.body
     console.log(req.body)
