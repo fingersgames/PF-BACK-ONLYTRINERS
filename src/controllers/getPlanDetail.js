@@ -6,6 +6,7 @@ const getPlanDetail = async (req,res)=>{
         if (idPlan) {
             const plan= await Plan.findByPk(idPlan)
             if(!plan) return res.status(400).send('Plan no encontrado')
+            if(!plan.isActive) return res.status(400).send('Plan no encontrado')
             const user=await User.findByPk(plan.idUser)
             const videos= await Video.findAll({where:{idPlan:idPlan}})
              const r={...plan.dataValues,idUser:user.idUser,userName:user.userName,videos:videos}

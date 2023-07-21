@@ -2,7 +2,7 @@ const { Plan, Video, User} = require("../db");
 
 const getPlan = async (req, res) => {
   try {
-    const planes = await Plan.findAll();
+    const planes = await Plan.findAll({where:{isActive:true}});
 
     const updatedPlanes = await Promise.all(planes.map(async (pla) => {
       const video = await Video.findOne({ where: { idPlan: pla.idPlan }, limit: 1 });

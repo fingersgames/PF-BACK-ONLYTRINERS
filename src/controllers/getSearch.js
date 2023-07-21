@@ -8,15 +8,21 @@ try {
     // if(!search) return res.status(400).send('Falta Palabra busqueda')
     
     let planes = await Plan.findAll({
-        where: {
-          [Sequelize.Op.or]: [
-            { title: { [Sequelize.Op.iLike]: `%${search}%` } },
-            {tags: { [Sequelize.Op.iLike]: `%${search}%`} },
-            {publicDescription: { [Sequelize.Op.iLike]: `%${search}%`}},
-            {privateDescription: { [Sequelize.Op.iLike]: `%${search}%`}},
-          ]
-        }
-      });
+      where: {
+        [Sequelize.Op.and]: [
+          {
+            [Sequelize.Op.or]: [
+              { title: { [Sequelize.Op.iLike]: `%${search}%` } },
+              { tags: { [Sequelize.Op.iLike]: `%${search}%` } },
+              { publicDescription: { [Sequelize.Op.iLike]: `%${search}%` } },
+              { privateDescription: { [Sequelize.Op.iLike]: `%${search}%` } },
+            ]
+          },
+          { isActive: true }
+        ]
+      }
+    });
+    
     if(planes.length===0) {
         return res.send([])
     }

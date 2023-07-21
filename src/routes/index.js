@@ -9,9 +9,10 @@ const postUser = require('../controllers/postUser')
 const postPlan = require('../controllers/postPlan')
 const updatePlan = require('../controllers/updatePlan')
 const updateUser = require('../controllers/updateUser')
-const deleteUser = require('../controllers/deleteLogicUser')
+const deleteLogicUser = require('../controllers/deleteLogicUser')
+const deleteUser = require('../controllers/deleteUser')
+const deleteLogicPlan = require('../controllers/deleteLogicPlan')
 const deletePlan = require('../controllers/deletePlan')
-
 const router = Router()
 
 router.get('/plans',getPlans)
@@ -24,8 +25,10 @@ router.post('/login/',postUserLogin)
 router.post('/user/',postUser)
 router.put('/plan',updatePlan)
 router.put('/user',updateUser)
-router.delete('/plan',deletePlan)
-router.delete('/user',deleteUser)
+router.delete('/user',deleteLogicUser)
+router.delete('/userdelete',deleteUser)
+router.delete('/plan',deleteLogicPlan)
+router.delete('/plandelete',deletePlan)
 module.exports = router;
 
 
