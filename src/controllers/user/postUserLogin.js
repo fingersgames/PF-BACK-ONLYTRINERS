@@ -11,7 +11,6 @@ const postUserLogin = async (req,res)=>{
         if(user.password!==password) return res.status(400).send('Contraseña invalida')
         const r={...user.dataValues,password:""}
         return res.json(r);
-
     } catch (error) {
         return res.status(500).json(error.message)
     }

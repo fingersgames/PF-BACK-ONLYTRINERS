@@ -1,6 +1,6 @@
 const {Plan, Video } = require('../../db');
 
-const deletePlan = async (req, res) => {
+const deleteLogicPlan = async (req, res) => {
   try {
     console.log('---------------------------------------------------------------');
     const { idPlan } = req.query;
@@ -19,4 +19,4 @@ const deletePlan = async (req, res) => {
   }
 };
 
-module.exports = deletePlan;
+module.exports = deleteLogicPlan;

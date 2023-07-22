@@ -1,5 +1,5 @@
 
-const {User,Plan, Bought} = require("../db")
+const {User,Plan, Bought} = require("../../db")
 const getBoughtsById = async (req,res)=>{
     const {idUser}=req.params;
     try {

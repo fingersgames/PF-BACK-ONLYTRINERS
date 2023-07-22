@@ -1,16 +1,14 @@
 const { Router } = require("express")
-const getPlans = require('../controllers/getPlans')
-const getUsers = require('../controllers/getUsers')
-const postUserLogin = require('../controllers/postUserLogin')
+const getPlans = require('../controllers/plan/getPlans')
+const getUsers = require('../controllers/user/getUsers')
+const postUserLogin = require('../controllers/user/postUserLogin')
 const getSearch = require('../controllers/getSearch')
-const deleteUser = require('../controllers/deleteUser')
-const deletePlan = require('../controllers/deletePlan')
-const postBought = require('../controllers/postBought')
-
+const deleteUser = require('../controllers/user/deleteUser')
+const deletePlan = require('../controllers/plan/deletePlan')
+const postBought = require('../controllers/bought/postBought')
 const plan = require("./plan.route");
 const user = require("./user.route");
-
-const postCompra = require("../controllers/postCompra") //Import
+const postCompra = require("../controllers/bought/postCompra") //Import
 
 const router = Router()
 

@@ -1,4 +1,4 @@
-const {User, Plan, Bought} = require('../db')
+const {User, Plan, Bought} = require('../../db')
 const postBought= async (req,res)=>{
     try {
         const {
