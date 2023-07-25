@@ -2,6 +2,7 @@ const {User} = require('../../db')
 const postUser = async (req,res)=>{
     try {
         const {
+          idUser,
           userName,
           firstName,
           lastName,
@@ -21,6 +22,7 @@ const postUser = async (req,res)=>{
         const birthdated= new Date(Birthdate)
     
         const newUser = await User.create({
+          idUser,
           userName,
           firstName,
           lastName,
