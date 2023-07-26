@@ -1,11 +1,11 @@
 
 const {User} = require("../../db")
 const postUserLogin = async (req,res)=>{
-    const {userName, password}=req.body
+    const {email, password}=req.body
     console.log(req.body)
-    if (!userName || !password)  return res.status(400).send("Falta datos")
+    if (!email || !password)  return res.status(400).send("Falta datos")
     try {
-        user= await User.findOne({where:{userName:userName}})
+        user= await User.findOne({where:{email:email}})
         if(!user) return res.status(400).send('Usuario no encontrado')
         if(!user.isActive) return res.status(400).send('Usuario no encontrado')
         if(user.password!==password) return res.status(400).send('Contraseña invalida')
