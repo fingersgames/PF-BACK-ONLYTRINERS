@@ -9,12 +9,13 @@ const postBought = require('../controllers/bought/postBought')
 const plan = require("./plan.route");
 const user = require("./user.route");
 const postCompra = require("../controllers/bought/postCompra") //Import
-
+const getBoughtsById = require("../controllers/bought/getBoughtsById")
 const router = Router()
 
 router.use("/plan", plan);
 router.use("/user", user);
 
+router.get('/checkout', getBoughtsById)
 router.post('/checkout', postCompra) //enrutado
 router.post('/bought',postBought)
 router.get('/search',getSearch)

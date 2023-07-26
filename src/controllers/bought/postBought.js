@@ -3,7 +3,7 @@ const postBought= async (req,res)=>{
     try {
         const {
           idUser,
-          idPlan
+          idPlan, amount
         } = req.body;
         const user= await User.findByPk(idUser)
         if (!user) return res.status(400).json({error:"Usuario no existe"})
@@ -19,6 +19,7 @@ const postBought= async (req,res)=>{
         await Bought.create({
           UserIdUser: idUser,
           PlanIdPlan: idPlan,
+          amount
         });
         return res.send('Compra guardada')
       } catch (error) {
